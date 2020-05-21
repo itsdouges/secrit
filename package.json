@@ -3,12 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "react-native run-macos",
     "test": "jest",
-    "lint": "eslint .",
-    "start:macos": "node node_modules/react-native-macos/local-cli/cli.js start --use-react-native-macos"
+    "lint": "eslint ."
   },
   "dependencies": {
     "react": "16.9.0",
