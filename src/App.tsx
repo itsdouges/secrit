@@ -1,31 +1,26 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  Button,
-  StyleSheet,
-  ScrollView,
-  View,
-} from 'react-native';
-
-const styles = StyleSheet.create({
-  container: {
-    minWidth: 400,
-    minHeight: 800,
-    height: '100%',
-    width: '100%',
-    backgroundColor: '#fff',
-  },
-});
+import { SideNavigation, Header, MenuItem } from './components/side-navigation';
+import { Content, Layout, LeftSidebar } from './components/layout';
+import { Queue } from './components/queue';
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <View>
-          <Button title="Hello world" onPress={() => {}} />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <Layout>
+      <LeftSidebar>
+        <SideNavigation>
+          <Header title="NXTGen Industries" subtitle="Next-gen service desk" />
+          <MenuItem>Your work</MenuItem>
+          <MenuItem>Your customers</MenuItem>
+          <MenuItem>Queues view</MenuItem>
+          <MenuItem>Filters</MenuItem>
+          <MenuItem>Settings</MenuItem>
+          <MenuItem>Dropbox</MenuItem>
+        </SideNavigation>
+      </LeftSidebar>
+      <Content>
+        <Queue />
+      </Content>
+    </Layout>
   );
 };
 
