@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 
 interface SideNavigationProps {
   children?: React.ReactNode;
@@ -7,9 +13,16 @@ interface SideNavigationProps {
 
 const sheet = StyleSheet.create({
   root: {
-    minWidth: 240,
+    color: 'blue',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
     paddingLeft: 8,
     paddingRight: 8,
+    paddingBottom: 8,
+    minWidth: 240,
   },
   header: {
     marginTop: 24,
@@ -18,6 +31,10 @@ const sheet = StyleSheet.create({
   },
   heading: {
     fontWeight: '600',
+  },
+  footer: {
+    padding: 8,
+    flexShrink: 0,
   },
   subtitle: {
     color: 'rgb(107, 119, 140)',
@@ -29,6 +46,13 @@ const sheet = StyleSheet.create({
   },
   text: {
     color: 'rgb(66, 82, 110)',
+  },
+  content: {
+    flexGrow: 1,
+    height: '100%',
+    paddingRight: 8,
+    paddingLeft: 8,
+    marginRight: -8,
   },
 });
 
@@ -49,6 +73,19 @@ export const Header = (props: { title: string; subtitle: string }) => {
   );
 };
 
+export const Footer = (props: { title: string; subtitle: string }) => {
+  return (
+    <View style={sheet.footer}>
+      <View>
+        <Text style={sheet.text}>{props.title}</Text>
+      </View>
+      <View>
+        <Text style={sheet.subtitle}>{props.subtitle}</Text>
+      </View>
+    </View>
+  );
+};
+
 export const MenuItem = (props: {
   children: string;
   description?: string;
@@ -61,4 +98,8 @@ export const MenuItem = (props: {
       </View>
     </TouchableOpacity>
   );
+};
+
+export const NavigationContent = (props: { children: React.ReactNode }) => {
+  return <ScrollView style={sheet.content}>{props.children}</ScrollView>;
 };

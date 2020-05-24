@@ -18,6 +18,8 @@ const sheet = StyleSheet.create({
     backgroundColor: 'rgb(250, 251, 252)',
     flexGrow: 0,
     flexShrink: 0,
+    position: 'relative',
+    width: 240,
   },
   content: {
     flexBasis: '100%',
@@ -31,7 +33,7 @@ export const Layout = ({ children }: PageLayoutProps) => {
 };
 
 export const LeftSidebar = ({ children }: PageLayoutProps) => {
-  return <ScrollView style={sheet.leftSidebar}>{children}</ScrollView>;
+  return <View style={sheet.leftSidebar}>{children}</View>;
 };
 
 export const Content = ({ children }: PageLayoutProps) => {
